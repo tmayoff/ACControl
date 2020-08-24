@@ -1,0 +1,22 @@
+{
+    "power": ["on", "off"],
+    "modes": [{
+        "name": "AC",
+        "max_temp": 30,
+        "min_temp": 18
+    }, {
+        "name": "Heat",
+        "max_temp": 30,
+        "min_temp": 16
+    }, {
+        "name": "Dehumidifer"
+    }, {
+        "name": "AI"
+    }],
+    "speeds": [
+        "LOW",
+        "MID",
+        "HIGH",
+        "CHAOS"
+    ]
+}

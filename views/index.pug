@@ -1,0 +1,27 @@
+include layout
+
+content
+    .container
+        .row
+            .col.text-center
+                h1 Heading
+        .row
+            .col.d-flex.d-xl-flex.justify-content-center.justify-content-xl-center
+                h4= temp + " " + mode + " " + speed
+        .row
+            .col.d-flex.d-xl-flex.justify-content-center.justify-content-xl-center
+                if power
+                    button.controller_btn.btn.btn-success#power_btn(type='button') Power
+                else 
+                    button.controller_btn.btn.btn-danger#power_btn(type='button') Power
+
+                button.controller_btn.btn.btn-primary#increase_temp(type='button') UP
+                button.controller_btn.btn.btn-primary#mode_btn(type='button') MODE
+        .row
+            .col.d-flex.d-xl-flex.justify-content-center.justify-content-xl-center
+                button.controller_btn.btn.btn-primary(type='button') Jet Mode
+                button.controller_btn.btn.btn-primary#decrease_temp(type='button') DOWN
+                button.controller_btn.btn.btn-primary(type='button') FAN SPEED
+        .row
+            .col.d-flex.d-xl-flex.justify-content-center.justify-content-xl-center
+                button.controller_btn.btn.btn-primary(type='button') SWING
