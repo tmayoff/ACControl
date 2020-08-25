@@ -3,18 +3,14 @@ $(document).ready(() => {
     $.get("/api/get_state", (state) => {
             
         $("#power_btn").click(() => {
-            $.post(`/api/power?state=${!state.power}`, () => {  
-                window.location.reload()
-            }).error(e => {
-                console.error(e)
+            $.post(`/api/power?state=${!state.power}`, () => {
+                GetState()
             })
         })
 
         $("#mode_btn").click(() => {
             $.post('/api/change_mode', () => {
-                window.location.reload()
-            }).error(e => {
-                console.error(e)
+                GetState()
             })
         })
 
@@ -30,6 +26,19 @@ $(document).ready(() => {
 
 function UpdateTemp(delta) {
     $.post(`/api/temp?delta=${delta}`, () => {
-        window.location.reload()
+        GetState()
+    })
+}
+
+function GetState() {
+    $.get('/api/get_state', (state) => {
+        $("#current_state").text(state.temp + " " + state.mode + " " + state.speed)
+        if (state.power) {
+            $("#power_btn").removeClass("btn-danger")
+            $("#power_btn").addClass("btn-success")
+        } else {
+            $("#power_btn").addClass("btn-danger")
+            $("#power_btn").removeClass("btn-success")
+        }
     })
 }
