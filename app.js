@@ -3,6 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 var StateManager = require('./services/StateManager')
 var lirc = require('./services/LIRCController')
+var ngrok = require('ngrok')
 
 const app = express()
 const port = 3000
@@ -23,4 +24,5 @@ app.set('views', './views')
 
 app.listen(port, () => {
     console.log('Listening on ' + port)
+    ngrok.connect({addr: 3000})
 })
